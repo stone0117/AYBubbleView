@@ -11,7 +11,7 @@
 typedef void(^CleanMessageBlock)(BOOL);
 
 @interface AYBubbleView : UIView
-
+@property (nonatomic, strong,readonly) UIView *frontView;
 @property (nonatomic, copy) CleanMessageBlock cleanMessageBlock;
 /**
  *  显示未读数Label

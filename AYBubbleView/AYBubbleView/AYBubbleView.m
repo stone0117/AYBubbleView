@@ -29,7 +29,7 @@
     CGFloat sinValue;
     CGFloat cosValue;
 }
-@property (nonatomic, strong) UIView *frontView;
+@property (nonatomic, strong,readwrite) UIView *frontView;
 @property (nonatomic, strong) UIView *backView;
 @property (nonatomic, strong) CAShapeLayer *animationLayer;
 @end
@@ -131,11 +131,12 @@
             }
         } else {
             [self hidenBubbleView];
-            self.frontView.frame = self.frame;
-            [self addBubbleAnimation];
             if (self.cleanMessageBlock) {
                 self.cleanMessageBlock(YES);
             }
+            self.frontView.frame = self.frame;
+            [self addBubbleAnimation];
+            
         }
         self.backView.bounds = self.frontView.bounds;
         self.backView.layer.cornerRadius = self.backView.frame.size.width * .5;
